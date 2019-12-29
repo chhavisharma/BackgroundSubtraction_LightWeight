@@ -8,7 +8,7 @@ from pdb import set_trace
 class BGModel:
 	'''
 	Method 1: Running Weighted Mean to compute background
-	Method 2: TBD - Gaussian Mixture Models per pixel (Takes more time to write .. :/)
+	Method 2: TBD - Gaussian Mixture Models per pixel (TBD)
 	'''
 	model = []
 	var  = []
@@ -63,6 +63,7 @@ def videoWrite(video_path, images, width, height):
 	
 	video.release()
 
+
 def plotBbox(img, msk, bbox, bigBlobIdx, scaleFactor):
 	for idx in bigBlobIdx:
 		# set_trace()
@@ -71,6 +72,7 @@ def plotBbox(img, msk, bbox, bigBlobIdx, scaleFactor):
 		x,y,w,h = (np.asarray([x,y,w,h])/scaleFactor).astype(np.int)
 		cv2.rectangle(img,(x,y),(x+w,y+h),(100,100,255),2)
 	return img
+
 
 def preProcess(img, width, scaleFactor):
 
@@ -87,6 +89,7 @@ def preProcess(img, width, scaleFactor):
 	img = cv2.GaussianBlur(img, (3, 3), 0)
 
 	return img.astype(np.uint8)
+
 
 def main(vid, out, frameLimit, width, minBlobSize, rho, threshold):
 	cap = cv2.VideoCapture(vid)
@@ -147,6 +150,7 @@ def main(vid, out, frameLimit, width, minBlobSize, rho, threshold):
 			stats = cv2.connectedComponentsWithStats(graymask, connectivity, cv2.CV_32S)
 			_ , components_msk, bboxes, _ = stats
 			(w,h) = components_msk.shape
+			
 			'''select blobs greater than min blob size and less than 2/3 of image size'''
 			bigBlobs = np.logical_and( bboxes[:,4]>minBlobSize, bboxes[:,4]< (w*h*2)/3)
 			bigBlobIdx = bigBlobs.nonzero()[0]
@@ -167,6 +171,7 @@ def main(vid, out, frameLimit, width, minBlobSize, rho, threshold):
 	# print("Saving video as", out)
 	# videoWrite(out, results, results[0].shape[1], results[0].shape[0])
 
+
 def testVideoLoad(path):
 	cap = cv2.VideoCapture(path)
 	ret, frame = cap.read()
@@ -177,6 +182,7 @@ def testVideoLoad(path):
 	cv2.destroyAllWindows()
 	print("[PASS] Video Loader\n")
 	return 
+
 
 if __name__ == "__main__":
 

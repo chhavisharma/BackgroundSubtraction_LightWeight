@@ -1,7 +1,7 @@
 # LRMtest
 Background Subtraction and Detection
 
-# Installation and Execution Instructions
+# Execution Instructions
 Use conda to create a new environment and activate it.
 ```
 conda create -n lrm python=3.6 anaconda
