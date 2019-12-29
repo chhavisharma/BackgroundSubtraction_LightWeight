@@ -1,5 +1,5 @@
-# LRM
-Background Subtraction and Detection
+# Background Subtraction and Detection
+LRM Assignment
 
 # Execution Instructions
 Use conda to create a new environment and activate it.
