@@ -1,4 +1,4 @@
-# LRMtest
+# LRM
 Background Subtraction and Detection
 
 # Execution Instructions
