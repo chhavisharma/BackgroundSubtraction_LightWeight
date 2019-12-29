@@ -13,7 +13,7 @@ conda create -n lrm python=3.6 anaconda
 cd LRMtest/data
 python main.py
 
-`
+```
 	parser.add_argument('-i','--input', default = '../data/challenge_clip.mkv', help='Path to source video')
 	parser.add_argument('-o','--output', default = '../data/result_clip.mp4', help='Output file path and name')  # .mkv
 	parser.add_argument('-f','--frames', default = 1, help='Number of frames to use for background')
@@ -22,4 +22,4 @@ python main.py
 	parser.add_argument('-t','--th', default = 20, help='Threshold for blob detection; range(0,255)')
 	parser.add_argument('-m','--minb', default = 1000, help='Minimum blob size for detection; range(0, w*h)')
 
-`
+```
