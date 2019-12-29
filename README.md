@@ -10,9 +10,12 @@ conda create -n lrm python=3.6 anaconda
 
 
 # Run
+
+```
 cd LRMtest/data
 python main.py
-
+```
+Arguments
 ```
 	parser.add_argument('-i','--input', default = '../data/challenge_clip.mkv', help='Path to source video')
 	parser.add_argument('-o','--output', default = '../data/result_clip.mp4', help='Output file path and name')  # .mkv
